@@ -1181,7 +1181,7 @@ func (b *ORMBuilder) renderGormTag(field *Field) string {
 		gormRes += "-;"
 	}
 
-	var foreignKey, associationForeignKey, joinTable, joinTableForeignKey, associationJoinTableForeignKey string
+	var foreignKey, associationForeignKey, joinTable, joinTableForeignKey, associationJoinTableForeignKey, polymorphic string
 	var associationAutoupdate, associationAutocreate, associationSaveReference, preload, replace, append, clear bool
 	if hasOne := field.GetHasOne(); hasOne != nil {
 		foreignKey = hasOne.Foreignkey
@@ -1236,6 +1236,7 @@ func (b *ORMBuilder) renderGormTag(field *Field) string {
 		associationAutocreate = tag.AssociationAutocreate
 		associationSaveReference = tag.AssociationSaveReference
 		preload = tag.Preload
+		polymorphic = tag.Polymorphic
 	}
 
 	if len(foreignKey) > 0 {
@@ -1270,6 +1271,10 @@ func (b *ORMBuilder) renderGormTag(field *Field) string {
 
 	if preload {
 		gormRes += fmt.Sprintf("preload:%s;", strconv.FormatBool(preload))
+	}
+
+	if len(polymorphic) > 0 {
+		gormRes += fmt.Sprintf("polymorphic:%s;", polymorphic)
 	}
 
 	if clear {
