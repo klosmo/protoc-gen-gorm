@@ -52,7 +52,7 @@ go mod tidy
 ### Installation
 
 To use this tool, install it from code with `make install`, `go install` directly,
-or `go get github.com/infobloxopen/protoc-gen-gorm`.
+or `go get github.com/klosmo/protoc-gen-gorm`.
 
 ### Usage
 
