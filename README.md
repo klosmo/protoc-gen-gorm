@@ -163,7 +163,7 @@ The plugin supports the following GORM [associations](http://gorm.io/docs/):
 - Has-Many
 - Many-To-Many
 
-Note: polymorphic associations are currently not supported.
+Note: polymorphic associations are supported.
 
 Association is defined by adding a field of some ormable message type(either single or repeated).
 
