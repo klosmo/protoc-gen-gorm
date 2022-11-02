@@ -26,7 +26,7 @@ type UserORM struct {
 	CreatedAt         *time.Time
 	CreditCard        *CreditCardORM `gorm:"foreignkey:UserId;association_foreignkey:Id"`
 	Emails            []*EmailORM    `gorm:"foreignkey:UserId;association_foreignkey:Id"`
-	ExternalUuid      *string        `gorm:"type:uuid"`
+	ExternalUuid      *string        `gorm:"type:uuid;index:external_uuid_idx;index:external_idx"`
 	Friends           []*UserORM     `gorm:"foreignkey:Id;association_foreignkey:Id;many2many:user_friends;jointable_foreignkey:UserId;association_jointable_foreignkey:FriendId"`
 	Id                string         `gorm:"type:uuid;primary_key"`
 	Languages         []*LanguageORM `gorm:"foreignkey:Id;association_foreignkey:Id;many2many:user_languages;jointable_foreignkey:UserId;association_jointable_foreignkey:LanguageId"`

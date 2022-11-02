@@ -338,31 +338,31 @@ type GormTag struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Column                         string `protobuf:"bytes,1,opt,name=column,proto3" json:"column,omitempty"`
-	Type                           string `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
-	Size                           int32  `protobuf:"varint,3,opt,name=size,proto3" json:"size,omitempty"`
-	Precision                      int32  `protobuf:"varint,4,opt,name=precision,proto3" json:"precision,omitempty"`
-	PrimaryKey                     bool   `protobuf:"varint,5,opt,name=primary_key,json=primaryKey,proto3" json:"primary_key,omitempty"`
-	Unique                         bool   `protobuf:"varint,6,opt,name=unique,proto3" json:"unique,omitempty"`
-	Default                        string `protobuf:"bytes,7,opt,name=default,proto3" json:"default,omitempty"`
-	NotNull                        bool   `protobuf:"varint,8,opt,name=not_null,json=notNull,proto3" json:"not_null,omitempty"`
-	AutoIncrement                  bool   `protobuf:"varint,9,opt,name=auto_increment,json=autoIncrement,proto3" json:"auto_increment,omitempty"`
-	Index                          string `protobuf:"bytes,10,opt,name=index,proto3" json:"index,omitempty"`
-	UniqueIndex                    string `protobuf:"bytes,11,opt,name=unique_index,json=uniqueIndex,proto3" json:"unique_index,omitempty"`
-	Embedded                       bool   `protobuf:"varint,12,opt,name=embedded,proto3" json:"embedded,omitempty"`
-	EmbeddedPrefix                 string `protobuf:"bytes,13,opt,name=embedded_prefix,json=embeddedPrefix,proto3" json:"embedded_prefix,omitempty"`
-	Ignore                         bool   `protobuf:"varint,14,opt,name=ignore,proto3" json:"ignore,omitempty"`
-	Foreignkey                     string `protobuf:"bytes,15,opt,name=foreignkey,proto3" json:"foreignkey,omitempty"`
-	AssociationForeignkey          string `protobuf:"bytes,16,opt,name=association_foreignkey,json=associationForeignkey,proto3" json:"association_foreignkey,omitempty"`
-	ManyToMany                     string `protobuf:"bytes,17,opt,name=many_to_many,json=manyToMany,proto3" json:"many_to_many,omitempty"`
-	JointableForeignkey            string `protobuf:"bytes,18,opt,name=jointable_foreignkey,json=jointableForeignkey,proto3" json:"jointable_foreignkey,omitempty"`
-	AssociationJointableForeignkey string `protobuf:"bytes,19,opt,name=association_jointable_foreignkey,json=associationJointableForeignkey,proto3" json:"association_jointable_foreignkey,omitempty"`
-	AssociationAutoupdate          bool   `protobuf:"varint,20,opt,name=association_autoupdate,json=associationAutoupdate,proto3" json:"association_autoupdate,omitempty"`
-	AssociationAutocreate          bool   `protobuf:"varint,21,opt,name=association_autocreate,json=associationAutocreate,proto3" json:"association_autocreate,omitempty"`
-	AssociationSaveReference       bool   `protobuf:"varint,22,opt,name=association_save_reference,json=associationSaveReference,proto3" json:"association_save_reference,omitempty"`
-	Preload                        bool   `protobuf:"varint,23,opt,name=preload,proto3" json:"preload,omitempty"`
-	Polymorphic                    string `protobuf:"bytes,24,opt,name=polymorphic,proto3" json:"polymorphic,omitempty"`
-	Permissions                    string `protobuf:"bytes,25,opt,name=permissions,proto3" json:"permissions,omitempty"`
+	Column                         string   `protobuf:"bytes,1,opt,name=column,proto3" json:"column,omitempty"`
+	Type                           string   `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
+	Size                           int32    `protobuf:"varint,3,opt,name=size,proto3" json:"size,omitempty"`
+	Precision                      int32    `protobuf:"varint,4,opt,name=precision,proto3" json:"precision,omitempty"`
+	PrimaryKey                     bool     `protobuf:"varint,5,opt,name=primary_key,json=primaryKey,proto3" json:"primary_key,omitempty"`
+	Unique                         bool     `protobuf:"varint,6,opt,name=unique,proto3" json:"unique,omitempty"`
+	Default                        string   `protobuf:"bytes,7,opt,name=default,proto3" json:"default,omitempty"`
+	NotNull                        bool     `protobuf:"varint,8,opt,name=not_null,json=notNull,proto3" json:"not_null,omitempty"`
+	AutoIncrement                  bool     `protobuf:"varint,9,opt,name=auto_increment,json=autoIncrement,proto3" json:"auto_increment,omitempty"`
+	Index                          []string `protobuf:"bytes,10,rep,name=index,proto3" json:"index,omitempty"`
+	UniqueIndex                    []string `protobuf:"bytes,11,rep,name=unique_index,json=uniqueIndex,proto3" json:"unique_index,omitempty"`
+	Embedded                       bool     `protobuf:"varint,12,opt,name=embedded,proto3" json:"embedded,omitempty"`
+	EmbeddedPrefix                 string   `protobuf:"bytes,13,opt,name=embedded_prefix,json=embeddedPrefix,proto3" json:"embedded_prefix,omitempty"`
+	Ignore                         bool     `protobuf:"varint,14,opt,name=ignore,proto3" json:"ignore,omitempty"`
+	Foreignkey                     string   `protobuf:"bytes,15,opt,name=foreignkey,proto3" json:"foreignkey,omitempty"`
+	AssociationForeignkey          string   `protobuf:"bytes,16,opt,name=association_foreignkey,json=associationForeignkey,proto3" json:"association_foreignkey,omitempty"`
+	ManyToMany                     string   `protobuf:"bytes,17,opt,name=many_to_many,json=manyToMany,proto3" json:"many_to_many,omitempty"`
+	JointableForeignkey            string   `protobuf:"bytes,18,opt,name=jointable_foreignkey,json=jointableForeignkey,proto3" json:"jointable_foreignkey,omitempty"`
+	AssociationJointableForeignkey string   `protobuf:"bytes,19,opt,name=association_jointable_foreignkey,json=associationJointableForeignkey,proto3" json:"association_jointable_foreignkey,omitempty"`
+	AssociationAutoupdate          bool     `protobuf:"varint,20,opt,name=association_autoupdate,json=associationAutoupdate,proto3" json:"association_autoupdate,omitempty"`
+	AssociationAutocreate          bool     `protobuf:"varint,21,opt,name=association_autocreate,json=associationAutocreate,proto3" json:"association_autocreate,omitempty"`
+	AssociationSaveReference       bool     `protobuf:"varint,22,opt,name=association_save_reference,json=associationSaveReference,proto3" json:"association_save_reference,omitempty"`
+	Preload                        bool     `protobuf:"varint,23,opt,name=preload,proto3" json:"preload,omitempty"`
+	Polymorphic                    string   `protobuf:"bytes,24,opt,name=polymorphic,proto3" json:"polymorphic,omitempty"`
+	Permissions                    string   `protobuf:"bytes,25,opt,name=permissions,proto3" json:"permissions,omitempty"`
 }
 
 func (x *GormTag) Reset() {
@@ -460,18 +460,18 @@ func (x *GormTag) GetAutoIncrement() bool {
 	return false
 }
 
-func (x *GormTag) GetIndex() string {
+func (x *GormTag) GetIndex() []string {
 	if x != nil {
 		return x.Index
 	}
-	return ""
+	return nil
 }
 
-func (x *GormTag) GetUniqueIndex() string {
+func (x *GormTag) GetUniqueIndex() []string {
 	if x != nil {
 		return x.UniqueIndex
 	}
-	return ""
+	return nil
 }
 
 func (x *GormTag) GetEmbedded() bool {
@@ -1303,9 +1303,9 @@ var file_options_gorm_proto_rawDesc = []byte{
 	0x74, 0x4e, 0x75, 0x6c, 0x6c, 0x12, 0x25, 0x0a, 0x0e, 0x61, 0x75, 0x74, 0x6f, 0x5f, 0x69, 0x6e,
 	0x63, 0x72, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x18, 0x09, 0x20, 0x01, 0x28, 0x08, 0x52, 0x0d, 0x61,
 	0x75, 0x74, 0x6f, 0x49, 0x6e, 0x63, 0x72, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x12, 0x14, 0x0a, 0x05,
-	0x69, 0x6e, 0x64, 0x65, 0x78, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x69, 0x6e, 0x64,
+	0x69, 0x6e, 0x64, 0x65, 0x78, 0x18, 0x0a, 0x20, 0x03, 0x28, 0x09, 0x52, 0x05, 0x69, 0x6e, 0x64,
 	0x65, 0x78, 0x12, 0x21, 0x0a, 0x0c, 0x75, 0x6e, 0x69, 0x71, 0x75, 0x65, 0x5f, 0x69, 0x6e, 0x64,
-	0x65, 0x78, 0x18, 0x0b, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x75, 0x6e, 0x69, 0x71, 0x75, 0x65,
+	0x65, 0x78, 0x18, 0x0b, 0x20, 0x03, 0x28, 0x09, 0x52, 0x0b, 0x75, 0x6e, 0x69, 0x71, 0x75, 0x65,
 	0x49, 0x6e, 0x64, 0x65, 0x78, 0x12, 0x1a, 0x0a, 0x08, 0x65, 0x6d, 0x62, 0x65, 0x64, 0x64, 0x65,
 	0x64, 0x18, 0x0c, 0x20, 0x01, 0x28, 0x08, 0x52, 0x08, 0x65, 0x6d, 0x62, 0x65, 0x64, 0x64, 0x65,
 	0x64, 0x12, 0x27, 0x0a, 0x0f, 0x65, 0x6d, 0x62, 0x65, 0x64, 0x64, 0x65, 0x64, 0x5f, 0x70, 0x72,

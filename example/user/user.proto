@@ -30,7 +30,12 @@ message User {
     repeated Language languages = 12 [(gorm.field).many_to_many = {}];
     repeated User friends = 13 [(gorm.field).many_to_many = {}];
     atlas.rpc.Identifier shipping_address_id = 14;
-    atlas.rpc.Identifier external_uuid = 15 [(gorm.field).tag = {type: "uuid"}];
+    atlas.rpc.Identifier external_uuid = 15 [
+        (gorm.field).tag = {
+            type: "uuid"
+            index: ["external_uuid_idx","external_idx"]
+        }
+    ];
 }
 
 message Email {

@@ -1160,18 +1160,22 @@ func (b *ORMBuilder) renderGormTag(field *Field) string {
 	if tag.GetAutoIncrement() {
 		gormRes += "auto_increment;"
 	}
-	if len(tag.Index) > 0 {
-		if tag.GetIndex() == "" {
-			gormRes += "index;"
-		} else {
-			gormRes += fmt.Sprintf("index:%s;", tag.GetIndex())
+	if len(tag.GetIndex()) > 0 {
+		for _, index := range tag.GetIndex() {
+			if index == "" {
+				gormRes += "index;"
+			} else {
+				gormRes += fmt.Sprintf("index:%s;", index)
+			}
 		}
 	}
-	if len(tag.UniqueIndex) > 0 {
-		if tag.GetUniqueIndex() == "" {
-			gormRes += "unique_index;"
-		} else {
-			gormRes += fmt.Sprintf("unique_index:%s;", tag.GetUniqueIndex())
+	if len(tag.GetUniqueIndex()) > 0 {
+		for _, uniqueIndex := range tag.GetIndex() {
+			if uniqueIndex == "" {
+				gormRes += "uniqueIndex;"
+			} else {
+				gormRes += fmt.Sprintf("uniqueIndex:%s;", uniqueIndex)
+			}
 		}
 	}
 	if tag.GetEmbedded() {
