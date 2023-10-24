@@ -8,7 +8,7 @@ import (
 	fmt "fmt"
 	auth "github.com/infobloxopen/atlas-app-toolkit/auth"
 	gateway "github.com/infobloxopen/atlas-app-toolkit/gateway"
-	gorm1 "github.com/infobloxopen/atlas-app-toolkit/gorm"
+	gorm1 "github.com/klosmo/atlas-app-toolkit/gorm"
 	errors "github.com/klosmo/protoc-gen-gorm/errors"
 	user "github.com/klosmo/protoc-gen-gorm/example/user"
 	types "github.com/klosmo/protoc-gen-gorm/types"

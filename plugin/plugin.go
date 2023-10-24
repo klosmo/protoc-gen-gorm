@@ -34,12 +34,12 @@ var (
 
 var (
 	gormImport         = "gorm.io/gorm"
-	tkgormImport       = "github.com/infobloxopen/atlas-app-toolkit/gorm"
+	tkgormImport       = "github.com/klosmo/atlas-app-toolkit/gorm"
 	uuidImport         = "github.com/satori/go.uuid"
 	authImport         = "github.com/infobloxopen/atlas-app-toolkit/auth"
 	gormpqImport       = "github.com/jinzhu/gorm/dialects/postgres"
 	gtypesImport       = "github.com/klosmo/protoc-gen-gorm/types"
-	resourceImport     = "github.com/infobloxopen/atlas-app-toolkit/gorm/resource"
+	resourceImport     = "github.com/klosmo/atlas-app-toolkit/gorm/resource"
 	queryImport        = "github.com/infobloxopen/atlas-app-toolkit/query"
 	ocTraceImport      = "go.opencensus.io/trace"
 	gatewayImport      = "github.com/infobloxopen/atlas-app-toolkit/gateway"
