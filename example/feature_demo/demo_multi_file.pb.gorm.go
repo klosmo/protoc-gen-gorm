@@ -7,11 +7,10 @@ import (
 	context "context"
 	fmt "fmt"
 	gateway "github.com/infobloxopen/atlas-app-toolkit/gateway"
-	gorm1 "github.com/infobloxopen/atlas-app-toolkit/gorm"
-	gorm "github.com/jinzhu/gorm"
 	errors "github.com/klosmo/protoc-gen-gorm/errors"
 	go_uuid "github.com/satori/go.uuid"
 	field_mask "google.golang.org/genproto/protobuf/field_mask"
+	gorm "gorm.io/gorm"
 )
 
 type ExternalChildORM struct {
@@ -169,7 +168,7 @@ func DefaultCreateExternalChild(ctx context.Context, in *ExternalChild, db *gorm
 			return nil, err
 		}
 	}
-	if err = db.Create(&ormObj).Error; err != nil {
+	if err = db.Omit().Create(&ormObj).Error; err != nil {
 		return nil, err
 	}
 	if hook, ok := interface{}(&ormObj).(ExternalChildORMWithAfterCreate_); ok {
@@ -203,9 +202,6 @@ func DefaultReadExternalChild(ctx context.Context, in *ExternalChild, db *gorm.D
 		if db, err = hook.BeforeReadApplyQuery(ctx, db); err != nil {
 			return nil, err
 		}
-	}
-	if db, err = gorm1.ApplyFieldSelection(ctx, db, nil, &ExternalChildORM{}); err != nil {
-		return nil, err
 	}
 	if hook, ok := interface{}(&ormObj).(ExternalChildORMWithBeforeReadFind); ok {
 		if db, err = hook.BeforeReadFind(ctx, db); err != nil {
@@ -328,7 +324,7 @@ func DefaultStrictUpdateExternalChild(ctx context.Context, in *ExternalChild, db
 			return nil, err
 		}
 	}
-	if err = db.Save(&ormObj).Error; err != nil {
+	if err = db.Omit().Save(&ormObj).Error; err != nil {
 		return nil, err
 	}
 	if hook, ok := interface{}(&ormObj).(ExternalChildORMWithAfterStrictUpdateSave); ok {
@@ -462,10 +458,6 @@ func DefaultListExternalChild(ctx context.Context, db *gorm.DB) ([]*ExternalChil
 			return nil, err
 		}
 	}
-	db, err = gorm1.ApplyCollectionOperators(ctx, db, &ExternalChildORM{}, &ExternalChild{}, nil, nil, nil, nil)
-	if err != nil {
-		return nil, err
-	}
 	if hook, ok := interface{}(&ormObj).(ExternalChildORMWithBeforeListFind); ok {
 		if db, err = hook.BeforeListFind(ctx, db); err != nil {
 			return nil, err
@@ -517,7 +509,7 @@ func DefaultCreateBlogPost(ctx context.Context, in *BlogPost, db *gorm.DB) (*Blo
 			return nil, err
 		}
 	}
-	if err = db.Create(&ormObj).Error; err != nil {
+	if err = db.Omit().Create(&ormObj).Error; err != nil {
 		return nil, err
 	}
 	if hook, ok := interface{}(&ormObj).(BlogPostORMWithAfterCreate_); ok {
@@ -551,9 +543,6 @@ func DefaultReadBlogPost(ctx context.Context, in *BlogPost, db *gorm.DB) (*BlogP
 		if db, err = hook.BeforeReadApplyQuery(ctx, db); err != nil {
 			return nil, err
 		}
-	}
-	if db, err = gorm1.ApplyFieldSelection(ctx, db, nil, &BlogPostORM{}); err != nil {
-		return nil, err
 	}
 	if hook, ok := interface{}(&ormObj).(BlogPostORMWithBeforeReadFind); ok {
 		if db, err = hook.BeforeReadFind(ctx, db); err != nil {
@@ -676,7 +665,7 @@ func DefaultStrictUpdateBlogPost(ctx context.Context, in *BlogPost, db *gorm.DB)
 			return nil, err
 		}
 	}
-	if err = db.Save(&ormObj).Error; err != nil {
+	if err = db.Omit().Save(&ormObj).Error; err != nil {
 		return nil, err
 	}
 	if hook, ok := interface{}(&ormObj).(BlogPostORMWithAfterStrictUpdateSave); ok {
@@ -817,10 +806,6 @@ func DefaultListBlogPost(ctx context.Context, db *gorm.DB) ([]*BlogPost, error) 
 		if db, err = hook.BeforeListApplyQuery(ctx, db); err != nil {
 			return nil, err
 		}
-	}
-	db, err = gorm1.ApplyCollectionOperators(ctx, db, &BlogPostORM{}, &BlogPost{}, nil, nil, nil, nil)
-	if err != nil {
-		return nil, err
 	}
 	if hook, ok := interface{}(&ormObj).(BlogPostORMWithBeforeListFind); ok {
 		if db, err = hook.BeforeListFind(ctx, db); err != nil {

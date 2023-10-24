@@ -10,6 +10,7 @@ option go_package = "github.com/klosmo/protoc-gen-gorm/example/feature_demo;exam
 message ReadAccountRequest {
     // For a read request, the id field is the only to be specified
     uint64 id = 1;
+    // fields
     infoblox.api.FieldSelection fields = 2;
 }
 
